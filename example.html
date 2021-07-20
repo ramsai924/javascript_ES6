@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function prom(num){
+            return new Promise(function(resolve,reject){
+                if(num >= 1000){
+                    setTimeout(resolve,num);
+                }else{
+                    reject("yes i am < 1000");
+                }
+            })
+        }
+
+
+
+        async function ram(time){
+            await prom(time).then(function(para){
+                console.log("one");
+                return prom(time);
+            }).then(function(){
+                console.log("two");
+                return prom(time);
+            }).then(function(){
+                console.log("three");
+            });
+
+           await sample("b")
+        }
+ram(1000);
+
+        function sample(x){
+            console.log(x)
+        }
+        
+       
+
+    </script>
+</body>
+</html>

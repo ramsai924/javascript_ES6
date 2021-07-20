@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Promises </title>
+</head>
+<body>
+    <script>
+        // let p = new Promise(function(ram,sai){
+        //     let a = 1+2;
+
+        //     if(a === 3){
+        //         ram("sucess");
+        //     }else{
+        //         sai("rejected");
+        //     }
+        // });
+
+        // p.then(function(msg){
+        //     console.log("then is : " + msg);
+        // })
+        // .catch(function(mss){
+        //     console.log("catch is : " + mss);
+        // });
+        
+        //----------------------------------------
+
+        // var ram = false;
+        // var sai = false;
+
+
+        // function fun(para1,para2){
+        //     if(ram){
+        //         para1("hello");
+        //     }else if(sai){
+        //         para1("hai");
+        //     }else{
+        //         para2("i am fine");
+        //     }
+        // }
+
+        // fun((msg) => console.log("para1 " + msg) , (msg1) => console.log("para2 " + msg1));
+
+        //------------------------------------------PROMISES
+
+        // var ram = false;
+        // var sai = false;
+
+        // function fun(){
+        //   return new Promise(function(resolve,reject){
+        //     if(ram){
+        //         reject("hello");
+        //     }else if(sai){
+        //         reject("hai");
+        //     } else {
+        //         resolve("i am resolve");
+        //     }
+        //   });
+        // }
+
+        // fun().then(function(msg){    
+        //     console.log(msg);
+        // }).catch(function(mss){
+        //     console.log(mss)
+        // })
+
+        //---------------------------------------------PROMISES.ALL
+
+        var p1 = new Promise((resolve) => resolve("p1"));
+        var p2 = new Promise((resolve) => resolve("p2"));
+        var p3 = new Promise((resolve) => resolve("p3"));
+
+        Promise.all(
+            [
+            p1,
+            p2,
+            p3
+            ]
+        ).then(function(p){
+            console.log(p);
+        })
+        
+    </script>
+</body>
+</html>

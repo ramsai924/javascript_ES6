@@ -1,0 +1,5 @@
+var names = {
+    name : "ram",
+    age : 23,
+    location : "hyderabad"
+}

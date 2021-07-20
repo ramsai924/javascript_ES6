@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="template">
+        hello kdsnlkas. 
+    </div>
+
+    <script>
+        var div = document.getElementById("template");
+
+        var name = "sai";
+
+        function func(word){
+            return word.toUpperCase();
+        }
+
+        var template = `<h1> ${func("hello")}, ${name} </h1>
+        <p>hey hello world</p>
+        `;
+
+        div.innerHTML = template;
+
+        
+    </script>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        function bike(color,name){
+            this.color = color;
+            this.name = name;
+
+            this.bikeName = function(){
+                console.log(this.color + " " + this.name);
+            }
+        }
+
+        var Bike = new bike("blue","dominnor"); // new acts like a objects
+
+        Bike.bikeName();
+
+        Bike.version = "2015"; // we can set the new properties
+
+        //------------------------
+        
+        function news(a){
+            console.log(a*a);
+        }
+
+        var News = new news(2);
+        var News = new news(4);
+
+    </script>
+</body>
+</html>

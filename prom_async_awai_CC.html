@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function prom(){
+            return new Promise(function(res,rej){
+                var a= 1+2;
+                if(a==3){
+                    res();
+                }else{
+                    rej();
+                }
+            })
+        }
+        prom().then(function(){
+            console.log("yes a is 3")
+        }).catch(function(){
+            console.log("no it is not 3");
+        });
+
+        async function ram(){
+            const res = await fetch("https://api.covid19india.org/data.json");
+            const data = await res.json();
+           
+            console.log(data);
+            console.log("firsts")
+        }
+        ram().then(function(){
+            console.log("yes");
+        }).catch(function(){
+            console.log("no")
+        });
+    </script>
+</body>
+</html>

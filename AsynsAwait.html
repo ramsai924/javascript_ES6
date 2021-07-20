@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Async Await</title>
+</head>
+<body>
+    
+    <button onclick="start()">start</button>
+    <p id="demo" style="display: none;font-size: large;font-weight: bold;"></p>
+    <script>
+
+
+//-----------------------------------------ASYNC AND AWAIT------------------------
+            
+            //   function launch() {
+            //         setTimeout(function () {
+            //             console.log("Launch")
+            //         }, 1000);
+            //     }
+
+            //     function bfProm(){
+            //         return new Promise(function(breakfast){
+            //             setTimeout(breakfast,2000)
+            //         })
+            //     }
+            //     bfProm().then(function(){
+            //         console.log("breakfast");
+            //     })
+
+
+            //    async function syncs(){
+            //         await bfProm();
+            //         await launch();
+            //     }
+            //     syncs();
+           
+//-------------------------------------USING PROMISES---------------------------------------
+
+
+            // function proms(){
+            //     return new Promise(function(breakfast){
+            //         setTimeout(breakfast,2000);
+            //     })
+            // }
+            // proms().then(function(){
+            //     console.log("Breakfast");
+
+            //     return new Promise(function(launch){
+            //         setTimeout(launch, 2000);
+            //     })
+            // }).then(function(){
+            //     console.log("launch");
+            // });
+
+         
+
+
+//----------------------------------------------USING NORMAL ASYNC WHICH WILL NOT WORK------------------------------------------------
+// the function which we need to run next though it have 1000 seconds than another function, so we have to use Promise which have more time so that -
+// -it will bloack the low time(1000) code. ....// so this below function is not working when we gave await for both functions
+
+            // function breakfasts(){
+            //     setTimeout(function(){
+            //         console.log("breakfast")
+            //     },3000);
+            // }
+
+            // function launchs() {
+            //         setTimeout(function () {
+            //             console.log("launch")
+            //         }, 1000);
+            //     }
+
+            // async function syncs(){
+            //     await breakfasts();
+            //     await launchs();
+            // }
+            // syncs()
+
+   
+
+
+
+
+        // fetch("https://reqres.in/api/users")
+        // .then(res => res.json())
+        // .then(ress => console.log(ress.data[0]));
+        // console.log("i am console after fetch");
+
+ 
+
+        // function delay(time){
+        //     return new Promise(function(resolve,reject){
+        //         if(isNaN(time)){
+        //                reject();
+        //         }else{
+                 
+        //             setTimeout(resolve, time);
+        //         }
+        //     })
+        // }
+        // delay(2000).then(function(){
+        //     console.log("Hai");
+        // }).catch(function(){
+        //     console.log("eroor");
+        // })
+
+
+//-----------------------------------EXAMPLE---------------------------
+    var p = document.getElementById("demo");
+
+    // function start(){
+        
+    //     p.style.display = "block";
+    //     p.textContent = "Starting"
+
+    //     function proms(){
+    //         return new Promise(function(resolve){
+    //             setTimeout(resolve,2000);
+    //         })
+    //     }
+    //     proms().then(function(){
+    //         p.textContent = "Fetching Data...";
+    //         return new Promise(function(res){
+    //             setTimeout(res,2000);
+    //         })
+    //     }).then(function(){
+    //         p.textContent ="User name is Ramsai";
+    //     })
+    // }
+
+    function start(){
+        p.style.display = "block";
+        p.textContent = "Starting";
+
+
+        function fetch(){
+            return new Promise(function(res){
+                setTimeout(res,2000);
+            })
+        }
+        fetch().then(function(){
+            p.textContent = "Fetching Data.."
+        });
+
+        function getData(){
+            setTimeout(function(){
+                p.textContent = "User Name is Ramsai";
+            },2000)
+        }
+
+        async function syncs(){
+            await fetch();
+            await getData();
+        }
+        syncs();
+    }
+
+
+
+        
+
+
+
+        
+    </script>
+</body>
+</html>

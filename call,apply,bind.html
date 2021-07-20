@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var name1 = {
+            name : "sai",
+            age : 30,
+            
+        };
+
+        let fullname = function(village, school) {
+                console.log(this.name + " " + this.age, village, school)
+            }
+
+        var name2 = {
+            name : "ram",
+            age : 20
+        };
+
+        fullname.call(name2,"donthi","svs");
+        fullname.apply(name2, ["toopran", "apply"]);
+
+
+        let newfunction = fullname.bind(name1,"dotnhi","bind");
+        newfunction()
+    </script>
+</body>
+</html>

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+#customers {
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+#customers td, #customers th {
+  border: 1px solid #ddd;
+  padding: 8px;
+  width: auto;
+}
+
+#customers tr:nth-child(even){background-color: #f2f2f2;}
+
+#customers tr:hover {background-color: #ddd;}
+
+#customers th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #4CAF50;
+  color: white;
+}
+</style>
+</head>
+<body>
+
+<table id="customers">
+  <tr>
+    <th>STATE</th>
+    <th>CONFIRMED</th>
+    <th>ACTIVE</th>
+    <th>RECOVERD</th>
+    <th>DEATHS</th>
+  </tr>
+  
+</table>
+
+
+<script>
+    // https://api.covid19api.com/summary
+    fetch('https://dictionaryapi.com/api/v3/references/collegiate/json/voluminous?key=82bce7f9-7ac1-46eb-b908-03d9f7783582')
+    .then(function(response){
+        return response.json();
+    })
+    .then(function(res){
+        // console.log(res.statewise);
+        // for(let i=0;i<res.statewise.length;i++){
+        //     var table = document.getElementById("customers");
+        //     var tr = document.createElement("tr");
+
+        //     var td = document.createElement("td");
+        //     td.textContent = res.statewise[i].state;
+        //     table.appendChild(tr);
+        //     tr.appendChild(td);
+
+        //     var td2 = document.createElement("td");
+        //     td2.textContent = res.statewise[i].confirmed;
+        //     tr.appendChild(td2);
+
+        //     var td3 = document.createElement("td");
+        //     td3.textContent = res.statewise[i].active;
+        //     tr.appendChild(td3);
+
+        //     var td4 = document.createElement("td");
+        //     td4.textContent = res.statewise[i].recovered;
+        //     tr.appendChild(td4);
+
+        //     var td5 = document.createElement("td");
+        //     td5.textContent = res.statewise[i].deaths;
+        //     tr.appendChild(td5);
+
+           
+        // }
+        console.log(res);
+        
+    })
+    // .then(function(res){
+    //     res.data.forEach(data => {
+    //         console.log(`${data.last_name}`);
+    //     });
+    //     return res;
+    // })
+    // .then(function(res1){
+    //     res1.data.forEach(data => {
+    //         console.log(`${data.first_name}`);
+    //     });
+    // })
+    // .catch(function(err){
+    //     console.log(err);
+    // });
+</script>
+</body>
+</html>
+
